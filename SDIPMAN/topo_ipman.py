@@ -298,7 +298,7 @@ def traffic_generation(net, topo, flows_peers):
 	os.system('killall bwm-ng')
 	os.system('killall iperf')
 
-def run_experiment(density, ip="192.168.56.101", port=6653, bw_gz=23.2, bw_cdn=26.1, bw_c2a=3.3, bw_a2e=10, bw_e2h=1):
+def run_experiment(density, port=6653, bw_gz=23.2, bw_cdn=26.1, bw_c2a=3.3, bw_a2e=10, bw_e2h=1):
 	"""
 		Firstly, start up Mininet;
 		secondly, start up Ryu controller;
@@ -310,12 +310,9 @@ def run_experiment(density, ip="192.168.56.101", port=6653, bw_gz=23.2, bw_cdn=2
 	topo.createLinks(bw_gz=bw_gz, bw_cdn=bw_cdn, bw_c2a=bw_c2a, bw_a2e=bw_a2e, bw_e2h=bw_e2h)
 
 	# 1. Start Mininet.
-	CONTROLLER_IP = ip
 	CONTROLLER_PORT = port
 	net = Mininet(topo=topo, link=TCLink, controller=None, autoSetMacs=True)
-	net.addController(
-		'controller', controller=RemoteController,
-		ip=CONTROLLER_IP, port=CONTROLLER_PORT)
+	net.addController('controller', controller=RemoteController, port=CONTROLLER_PORT)
 	net.start()
 
 	# Set the OpenFlow version for switches as 1.3.0.

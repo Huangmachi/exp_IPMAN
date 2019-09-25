@@ -1,6 +1,6 @@
 ## exp_IPMAN
 
-exp_IPMAN is an experiment to compare the performance of the IP Metropolitan Area Network of China Mobile Communication Corporation while adopting ECMP, BGP and SDN.
+exp_IPMAN is an experiment to compare the performance of the IP Metropolitan Area Network of China Mobile Communication Corporation while adopting ECMP and SDN.
 
 
 ### Prerequisites
@@ -33,8 +33,6 @@ You must reinstall Ryu, so that you can run the new code. In the top directory o
 
 
 ### Start
-
-Note: Before doing the experiment, you should change the controller's IP address from '192.168.56.101' to your own machine's eth0 IP address in the fattree.py module in each application, because '192.168.56.101' is my computer's eth0 IP address (Try 'ifconfig' in your Ubuntu to find out the eth0's IP address). Otherwise, the switches can't connect to the controller.
 
 Just start it as follows, you will find the results in the 'results' directory.
 
