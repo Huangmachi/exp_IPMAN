@@ -298,7 +298,7 @@ def traffic_generation(net, topo, flows_peers):
 	os.system('killall bwm-ng')
 	os.system('killall iperf')
 
-def run_experiment(density, ip="192.168.56.101", port=6653, bw_gz=23.2, bw_cdn=26.1, bw_c2a=3.3, bw_a2e=10, bw_e2h=1):
+def run_experiment(density, ip="127.0.0.1", port=6633, bw_gz=23.2, bw_cdn=26.1, bw_c2a=3.3, bw_a2e=10, bw_e2h=1):
 	"""
 		Firstly, start up Mininet;
 		secondly, start up Ryu controller;
